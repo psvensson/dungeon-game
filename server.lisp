@@ -1,7 +1,7 @@
 (in-package #:dungeon)
 
 ;; (ql:quickload '(:websocket-driver-server :clack))
-(use-package :cl :websocket-driver)
+;; (use-package :cl :websocket-driver)
 
 (defvar *connections* (make-hash-table))
 
@@ -52,6 +52,6 @@
 ;;
 
 (defun start-wsd-server ()
-  defvar
+  (defvar
   *chat-handler*
-  (clack:clackup #'chat-server :port 12345))
+  (clack:clackup #'chat-server :port 12345)))
