@@ -1,9 +1,9 @@
 # dungeon
-### _Your Name <your.name@example.com>_
+### Peter Svensson <psvensson@gmail..com>_
 
-This is a project to do ... something.
+This is jsut mee goofing off for a bit, nothing works and it might stay that way for some time :)
 
 ## License
 
-Specify license here
+MIT
 
