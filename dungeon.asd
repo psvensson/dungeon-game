@@ -7,10 +7,18 @@
   :version "0.0.1"
   :serial t
   :depends-on (#:clack
+               #:alexandria
                #:websocket-driver
+               #:cl-json
                #:croatoan)
   :components
                 ((:file "package")
+                 (:file "server-map")
+                 (:file "dungeon")
                  (:file "client")
+                 (:file "client-messages")
                  (:file "server")
-                 (:file "dungeon")))
+                 (:file "server-messages")
+                 (:file "connection")
+                 (:file "entity")
+                 (:file "ui")))
