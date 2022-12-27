@@ -20,6 +20,7 @@
     (send-connections new-connection)))
 
 (defun send-to-connection (con message)
+  (format t "~S~%"(json:encode-json-to-string message))
   (websocket-driver:send
     (wscon con)
     (json:encode-json-to-string message)))

@@ -52,9 +52,6 @@
       (#\a (send-to-server (list :move :left)))
       (#\d (send-to-server (list :move :right))))))
 
-      ;;(princ event scr)
-      ;;(refresh scr)))
-
 (defun add-client-entity (entity)
   ;;(inspect entity)
   (setf
@@ -64,3 +61,12 @@
 
 (defun remove-client-entity (entity)
   (remhash *client-entities* entity))
+
+(defun list-to-plist (l)
+  (let
+      ((rv  '())
+       (rl (reverse l)))
+    (dotimes (n (length l))
+      (push (pop rl) rv)
+      (push (symbol-from-string (pop rl)) rv))
+    rv))

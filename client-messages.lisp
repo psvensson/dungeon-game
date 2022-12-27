@@ -15,8 +15,9 @@ server, which are keyed on the op symbol"))
   (add-client-entity (car args)))
 
 (defmethod server-message ((op (eql :connections)) args)
-  (inspect args)
-  (setf *participants* (car args)))
+  ;;(inspect  args)
+  ;;(format t "connections: ~S " args)
+  (setf *participants*  (car args)))
 
 
 (defun handle-server-message (msg)

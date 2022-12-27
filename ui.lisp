@@ -2,7 +2,8 @@
 
 (defparameter *status-pos* (list 'x 40 'y 2))
 (defparameter *map-pos* (list 'x 3 'y 15))
-(defparameter *participants-pos* (list 'x 3 'y 2))
+(defparameter *participants-pos* (list 'x 20 'y 2))
+(defparameter *debug-pos* (list 'x 43 'y 45))
 
 (defparameter *map-cell-representation*
   #(#\  #\#))
@@ -62,19 +63,24 @@
 
 (defun render-score ())
 
-(defun render-participant (entity count)
+(defun render-participant (participant count)
+  ;;(move-to *debug-pos*)
+  ;;(format t "Participant: ~S" participant)
   (move-to (list
-            'x (getf *participants-pos* 'x)
-            'y (+ count (getf *participants-pos* 'y))))
+            'x (+ count (getf *participants-pos* 'x))
+            'y (getf *participants-pos* 'y)))
   (format *screen* "~S  ~S"
-          (alexandria:assoc-value entity :id)
-          (alexandria:assoc-value entity :nick)))
+          (getf participant :id)
+          (getf participant :nick)))
+  ;;(format *screen* "~S" participant))
 
 (defun render-participant-list ()
-  (let ((count -1))
-    (loop for entity being the hash-values
-            of *client-entities*
-            do (render-participant entity (incf count)))))
+  (loop for participant in *participants*
+        for count from 0
+        do (render-participant
+            (list-to-plist participant)
+            count)))
+
 
 (defun render-ui ()
   (render-map)

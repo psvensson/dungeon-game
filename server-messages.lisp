@@ -34,7 +34,5 @@
 
 (defun send-connections (connection)
   (send-to-connection
-    connection (list :connections
-        (mapcar (lambda (c)
-            (list 'nick (nick c) 'id (id (entity c))))
-                *connections*))))
+   connection (list :connections
+                    (get-connections-list))))

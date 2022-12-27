@@ -47,6 +47,7 @@
         (list
          (list 'x 5 'y 0)
          (list 'x 0 'y 9)
+         (list 'x 8 'y 9)
          (list 'x 9 'y 9))))
 
 (defun 2d-array-to-list (array)
@@ -71,3 +72,15 @@
               (getf pos 'y)
               (getf pos 'x))
         val))
+
+(defun get-connections-list ()
+  (let
+      ((rv ()))
+    (maphash
+     (lambda (k item)
+       (declare (ignore k))
+       (push (list :nick (nick item)
+                   :id (id item))
+             rv))
+     *connections*)
+      rv))
