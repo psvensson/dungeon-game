@@ -1,7 +1,7 @@
 # dungeon
 ### Peter Svensson <psvensson@gmail..com>_
 
-This is jsut mee goofing off for a bit, nothing works and it might stay that way for some time :)
+This is just me goofing off for a bit, nothing works and it might stay that way for some time :)
 
 But when it does work, this is how:
 First go to the directory where you cloned this rep, then start a lisp from the command-line, perhaps SBCL.
